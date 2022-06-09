@@ -1,0 +1,18 @@
+<script>
+    function ask(question, yes, no){
+        if(confirm(question))
+            yes()
+        else
+            no()
+    }
+    
+    function showOk(){
+        alert('You agrred !');
+    }
+    
+    function showCancel() {
+        alert('You cancel the exections !!')
+    }
+    
+    ask("Do you agree",showOk, showCancel);
+</script>

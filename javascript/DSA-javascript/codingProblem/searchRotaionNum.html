@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <h1>Searching code</h1>
+</body>
+</html>
+<script>
+    function search(arr, lb, ub, key){
+        if(lb > ub){
+            return -1;
+        }
+    
+        let mid =  (lb + (ub - lb)/2);
+    
+        if(arr[mid] == key){
+            return mid;
+        }
+    
+    
+        if(arr[lb] <= arr[mid]){
+            if(key >= arr[mid] && key <= arr[mid]){
+                return search(arr, lb, mid - 1, key);
+            }
+            else{
+                return search(arr, mid + 1, ub, key);
+            }
+        }
+    
+    
+        if(arr[lb] >= arr[mid] && key <=  mid[ub]){
+            return search(arr, mid + 1, ub, key);
+        }
+        else{
+            return search(arr, lb, mid -1, key);
+        }
+    
+    }
+    
+    
+    let arr = [4, 5, 6, 7, 8, 9, 1, 2, 3];
+    let length = arr.length;
+    let key = 6;
+    
+    let resp = search(arr,0,length - 1,key);
+        (resp != -1)
+            ? console.log(`Number is not found`)
+            : console.log(`Number is found at index ${resp}`)
+</script>
